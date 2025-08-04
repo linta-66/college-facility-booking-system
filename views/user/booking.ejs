@@ -1,0 +1,91 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar') %>
+
+<div class="container mt-5">
+  <h2 class="text-primary mb-4">Facility Booking</h2>
+
+  <!-- Booking Section -->
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card p-4 shadow-sm">
+        <form id="booking-form">
+          <div class="mb-3">
+            <label for="booking-facility-name" class="form-label">Facility Name</label>
+            <input type="text" class="form-control" id="booking-facility-name" placeholder="Select from facility list" readonly>
+          </div>
+
+          <div class="mb-3">
+            <label for="booking-date" class="form-label">Date</label>
+            <input type="date" class="form-control" id="booking-date" required>
+          </div>
+
+          <div class="mb-3 row">
+            <div class="col">
+              <label for="booking-start-time" class="form-label">Start Time</label>
+              <input type="time" class="form-control" id="booking-start-time" required>
+            </div>
+            <div class="col">
+              <label for="booking-end-time" class="form-label">End Time</label>
+              <input type="time" class="form-control" id="booking-end-time" required>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="booking-purpose" class="form-label">Purpose</label>
+            <textarea class="form-control" id="booking-purpose" rows="3" required></textarea>
+          </div>
+
+          <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary">Submit Booking</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card p-3 shadow-sm">
+        <h5>Select Facility</h5>
+        <ul class="list-group" id="facility-list">
+          <!-- Example items (can be dynamically loaded later) -->
+          <li class="list-group-item" onclick="selectFacility('Auditorium')">Auditorium</li>
+          <li class="list-group-item" onclick="selectFacility('Computer Lab')">Computer Lab</li>
+          <li class="list-group-item" onclick="selectFacility('Seminar Hall')">Seminar Hall</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Optional Modal for Confirmation or Alerts -->
+<div id="booking-modal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Book Facility</h2>
+      <button class="close-btn" onclick="closeModal('booking-modal')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p>Booking successfully submitted!</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" onclick="closeModal('booking-modal')">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function selectFacility(name) {
+    document.getElementById('booking-facility-name').value = name;
+  }
+
+  function closeModal(id) {
+    document.getElementById(id).style.display = 'none';
+  }
+
+  document.getElementById('booking-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    // You can add Ajax here to submit the form
+    document.getElementById('booking-modal').style.display = 'block';
+  });
+</script>
+
+<%- include('../partials/footer') %>
