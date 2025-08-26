@@ -122,6 +122,8 @@
   .title h1 {
     margin: 0;
     font-size: 1.8rem;
+    padding-right: 100px;
+
   }
   
   .title .tagline {
@@ -131,10 +133,11 @@
     color: gray;
   }
   
-  /* Navbar */
-  nav ul {
+ /* Navbar */
+nav ul {
     display: flex;
     list-style: none;
+    margin-left: 200px;   /* shifts entire nav items to the right */
   }
   
   nav ul li {
@@ -151,6 +154,7 @@
   nav ul li a:hover {
     color: var(--secondary);
   }
+  
 
 /* Custom Button Style */
 .btn-custom {
