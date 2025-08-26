@@ -1,29 +1,20 @@
-const express = require('express');
+// routes/userRoutes.js
+const express = require("express");
 const router = express.Router();
-const userController = require('../controllers/userController');
+const userController = require("../controllers/userController");
 
 // Dashboard
-router.get('/dashboard', userController.renderDashboard);
+router.get("/dashboard", userController.dashboard);
 
 // Booking
-router.get('/booking', userController.renderBookingPage);
-router.post('/book', userController.handleBooking);
+router.get("/booking", userController.showBookingPage);
+router.post("/booking", userController.bookFacility);
 
-// View Allotments
-router.get('/view-allotments', userController.viewAllotments);
-
-// Change Request
-router.get('/change-request', userController.changeRequest);
-router.post('/change-request', userController.submitChangeRequest);
-
-// Complaint
-router.get('/complaint', userController.renderComplaintPage);
-router.post('/complaint', userController.submitComplaint);
-
-// Notifications
-router.get('/notifications', userController.getNotifications);
+// Complaints
+router.get("/complaint", userController.showComplaintPage);
+router.post("/complaint", userController.submitComplaint);
 
 // Profile
-router.get('/profile', userController.viewProfile);
+router.get("/profile", userController.showProfile);
 
 module.exports = router;

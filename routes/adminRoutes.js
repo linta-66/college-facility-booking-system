@@ -1,29 +1,28 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const adminController = require('../controllers/adminController');
+const adminController = require("../controllers/adminController");
 
-// Dashboard
-router.get('/dashboard', (req, res) => {
-    res.render('admin/adminDashboard');
-  });
-  
-// Facilities
-router.get('/manage-facilities', adminController.manageFacilities);
-router.post('/add-facility', adminController.addFacility);
+// Admin Dashboard
+router.get("/dashboard", adminController.dashboard);
 
-// Bookings
-router.get('/manage-bookings', adminController.manageBookings);
+// Manage Facilities
+router.get("/manageFacilities", (req, res) => {
+  res.render("admin/manageFacilities");
+});
 
-// Faculty
-router.get('/manage-faculty', adminController.manageFaculty);
+// Manage Bookings
+router.get("/manageBookings", (req, res) => {
+  res.render("admin/manageBookings");
+});
 
-// Classroom Allotment
-router.get('/classroom-allotment', adminController.classroomAllotment);
+// Manage Faculty
+router.get("/manageFaculty", (req, res) => {
+  res.render("admin/manageFaculty");
+});
 
-// Complaints
-router.get('/view-complaints', adminController.viewComplaints);
-
-// Profile
-router.get('/profile', adminController.manageProfile);
+// View Complaints
+router.get("/viewComplaints", (req, res) => {
+  res.render("admin/viewComplaints");
+});
 
 module.exports = router;

@@ -1,13 +1,16 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const authController = require('../controllers/authController');
+const authController = require("../controllers/authController");
 
-router.get('/login', authController.renderLogin);
-router.post('/login', authController.loginUser);
+// Login Route
+router.get("/login", authController.showLogin); // render login.ejs
+router.post("/login", authController.loginUser); // handle login form
 
-router.get('/signup', authController.renderSignup);
-router.post('/signup', authController.registerUser);
+// Signup Route
+router.get("/signup", authController.showSignup);
+router.post("/signup", authController.registerUser);
 
-router.get('/logout', authController.logoutUser);
+// Logout
+router.get("/logout", authController.logout);
 
 module.exports = router;

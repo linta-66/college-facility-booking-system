@@ -1,1 +1,1 @@
-hvygv
+const mongoose = require('mongoose');

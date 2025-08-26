@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Facility Booking System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+    <%- include("partials/header") %>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+          <h2>Book College Facilities With Ease</h2>
+          <p>
+            Our online booking system makes it simple to reserve classrooms, labs,
+            sports facilities, and more for your academic and extracurricular
+            activities.
+          </p>
+      
+          <div class="hero-buttons">
+            <a href="/auth/signup" class="btn btn-primary">Get Started</a>
+            <a href="/how-it-works" class="btn btn-outline">Learn More</a>
+          </div>
+        </div>
+      </section>
+      
+
+    <!-- Features Section -->
+    <section class="section features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Our System</h2>
+                <p>We provide a seamless experience for booking college facilities with these key features</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Easy Booking Process</h3>
+                    <p>Simple and intuitive interface for quick reservations of any college facility.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Real-Time Availability</h3>
+                    <p>Check facility availability in real-time and avoid scheduling conflicts.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Instant Notifications</h3>
+                    <p>Receive confirmation and reminder notifications for your bookings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+                <p>Booking a facility is simple with our four-step process</p>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Create Account</h3>
+                    <p>Sign up with your college credentials to access the booking system.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Browse Facilities</h3>
+                    <p>Explore available facilities and check their schedules.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Select Time Slot</h3>
+                    <p>Choose a suitable date and time for your booking.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Confirm Booking</h3>
+                    <p>Review details and confirm your reservation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section class="section facilities">
+        <div class="container">
+            <div class="section-title">
+                <h2>Available Facilities</h2>
+                <p>Explore the various facilities you can book through our system</p>
+            </div>
+            
+            <div class="facilities-grid">
+                <div class="facility-card">
+                    <div class="facility-img" style="background-image: url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="facility-content">
+                        <h3>Lecture Halls</h3>
+                        <p>Spacious rooms equipped with modern audio-visual technology for presentations and lectures.</p>
+                        <a href="/auth/login" class="btn">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="facility-card">
+                    <div class="facility-img" style="background-image: url('https://images.unsplash.com/photo-1581092921461-eab62e97a780?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="facility-content">
+                        <h3>Science Labs</h3>
+                        <p>Fully equipped laboratories for physics, chemistry, and biology experiments.</p>
+                        <a href="/auth/login" class="btn">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="facility-card">
+                    <div class="facility-img" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="facility-content">
+                        <h3>Sports Complex</h3>
+                        <p>Indoor courts, gymnasium, and fitness center for athletic activities.</p>
+                        <a href="/auth/login" class="btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Students Say</h2>
+                <p>Hear from students who have used our booking system</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "This system made booking our project meeting room so easy. No more running between departments for approvals!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div>
+                            <h4>Sarah Johnson</h4>
+                            <p>Computer Science Student</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "As the president of the debate club, I book facilities weekly. This system has saved me countless hours."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div>
+                            <h4>Michael Chen</h4>
+                            <p>Political Science Student</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "The real-time availability feature is fantastic. I can instantly see which labs are free for our study group."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div>
+                            <h4>Emily Rodriguez</h4>
+                            <p>Biology Student</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta">
+        <div class="container">
+            <h2>Ready to Book Your Facility?</h2>
+            <p>Join thousands of students and faculty members who use our system to simplify their facility booking process</p>
+            <a href="/auth/signup" class="btn btn-accent">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <%- include("partials/footer") %>
+   </body>
+</html>
