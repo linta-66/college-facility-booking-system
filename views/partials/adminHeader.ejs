@@ -1,0 +1,33 @@
+<!-- Header (would be adminheader.ejs in a real application) -->
+<header class="header">
+    <div class="header-left">
+        <div class="logo">AdminPanel</div>
+        <button class="sidebar-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search...">
+        </div>
+    </div>
+    <div class="header-right">
+        <div class="user-welcome">Welcome, <span id="username">Admin User</span></div>
+        <div class="profile-dropdown">
+            <div class="profile-info">
+                <div class="profile-img" id="profileInitials">AD</div>
+                <span class="profile-name">Admin</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="dropdown-menu">
+                <div class="dropdown-item">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </div>
+                <div class="dropdown-item">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

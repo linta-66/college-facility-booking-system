@@ -1,20 +1,18 @@
-// routes/userRoutes.js
+//routes/userRoutes.js
+
 const express = require("express");
 const router = express.Router();
-const userController = require("../controllers/userController");
 
-// Dashboard
-router.get("/dashboard", userController.dashboard);
+// Middleware to check user session
+function isUser(req, res, next) {
+  if (req.session.user && req.session.user.type === "user") return next();
+  return res.redirect("/auth/login");
+}
 
-// Booking
-router.get("/booking", userController.showBookingPage);
-router.post("/booking", userController.bookFacility);
-
-// Complaints
-router.get("/complaint", userController.showComplaintPage);
-router.post("/complaint", userController.submitComplaint);
-
-// Profile
-router.get("/profile", userController.showProfile);
+// User dashboard
+router.get("/dashboard", isUser, (req, res) => {
+  // Pass username from DB to dashboard.ejs
+  res.render("user/dashboard");
+});
 
 module.exports = router;
