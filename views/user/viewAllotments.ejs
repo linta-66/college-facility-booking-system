@@ -1,0 +1,231 @@
+<%- include("../partials/userHeader") %>
+
+<section class="container mt-5">
+  <!-- Header -->
+  <div class="text-center mb-4">
+    <h2 class="fw-bold text-uppercase text-dark">Facility Allotment Overview</h2>
+    <p class="text-muted">Quick glance at classrooms, seminar halls, and conference halls</p>
+    <hr class="w-25 mx-auto border-2 border-primary">
+  </div>
+
+  <!-- Classrooms (clickable card) -->
+<div class="row g-4">
+<div class="col-12 col-md-4">
+  <a href="/user/classrooms" class="text-decoration-none text-dark">
+    <div class="card shadow-sm h-100 border-0">
+      <img src="/images/classrooms.jpg" class="card-img-top object-fit-cover" alt="Classrooms">
+      <div class="card-body text-center">
+        <h5 class="card-title mb-1">Classrooms</h5>
+        <p class="text-muted mb-2">Facility type: Classroom</p>
+      </div>
+    </div>
+  </a>
+</div>
+<!-- SeminarHalls(clickable card) -->
+<div class="col-12 col-md-4">
+  <a href="/user/seminarhalls" class="text-decoration-none text-dark"></a>
+
+      <div class="card shadow-sm h-100 border-0">
+        <img src="/images/semiarhalls.jpg" class="card-img-top object-fit-cover" alt="Seminar Halls">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-1">Seminar Halls</h5>
+          <p class="text-muted mb-2">Facility type: Seminar Hall</p>
+        </div>
+      </div>
+    </div>
+    <!-- Conferencehalls(clickable card) -->
+
+    <div class="col-12 col-md-4">
+      <a href="/user/conferencehalls" class="text-decoration-none text-dark"></a>
+      <div class="card shadow-sm h-100 border-0">
+        <img src="/images/conferenceHalls.jpg" class="card-img-top object-fit-cover" alt="Conference Halls">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-1">Conference Halls</h5>
+          <p class="text-muted mb-2">Facility type: Conference Hall</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Classroom Allotment Summary -->
+  <% const classroomAllotments = allotments?.filter(a => a.facility_id?.type === 'classroom'); %>
+  <div class="mt-5">
+    <h3 class="h5 fw-semibold text-dark text-center mb-3">Your Classroom Allotments</h3>
+
+    <% if (classroomAllotments && classroomAllotments.length > 0) { %>
+      <div class="row g-4 mb-4">
+        <% classroomAllotments.forEach((a, index) => { %>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card shadow-sm h-100 border-0">
+              <img src="/images/classrooms.jpg" class="card-img-top object-fit-cover" alt="Classroom Image">
+              <div class="card-body">
+                <h5 class="card-title fw-bold">Classroom <%= index + 1 %>: <%= a.facility_id?.name %></h5>
+                <p class="mb-1"><strong>Location:</strong> <%= a.facility_id?.location %></p>
+                <p class="mb-1"><strong>Date:</strong> <%= a.date %></p>
+                <p class="mb-1"><strong>Time Slot:</strong> <%= a.time_slot %></p>
+                <p class="mb-1">
+                  <strong>Status:</strong>
+                  <span class="badge rounded-pill 
+                    <%= a.status === 'Approved' ? 'bg-success' : 
+                        a.status === 'Pending' ? 'bg-warning text-dark' : 
+                        'bg-danger' %>">
+                    <%= a.status %>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover shadow-sm">
+          <thead class="table-light text-center">
+            <tr class="table-primary">
+              <th scope="col">Classroom</th>
+              <th scope="col">Location</th>
+              <th scope="col">Date</th>
+              <th scope="col">Time Slot</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody class="text-center">
+            <% classroomAllotments.forEach(a => { %>
+              <tr>
+                <td><%= a.facility_id?.name %></td>
+                <td><%= a.facility_id?.location %></td>
+                <td><%= a.date %></td>
+                <td><%= a.time_slot %></td>
+                <td>
+                  <span class="badge rounded-pill 
+                    <%= a.status === 'Approved' ? 'bg-success' : 
+                        a.status === 'Pending' ? 'bg-warning text-dark' : 
+                        'bg-danger' %>">
+                    <%= a.status %>
+                  </span>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    <% } else { %>
+      <div class="alert alert-info text-center mt-3">
+        <i class="bi bi-info-circle-fill me-2"></i> You have no classroom allotments yet.
+      </div>
+    <% } %>
+  </div>
+
+  <!-- Step-by-step flow -->
+  <div class="mt-5">
+    <h3 class="h5 fw-semibold text-dark text-center mb-3">Allotment process</h3>
+    <div class="d-flex justify-content-center align-items-center gap-3 flex-wrap">
+      <div class="text-center">
+        <div class="step-dot bg-primary text-white">1</div>
+        <div class="small mt-2 text-muted">Request</div>
+      </div>
+      <div class="step-line"></div>
+      <div class="text-center">
+        <div class="step-dot bg-warning text-dark">2</div>
+        <div class="small mt-2 text-muted">Approval</div>
+      </div>
+      <div class="step-line"></div>
+      <div class="text-center">
+        <div class="step-dot bg-success text-white">3</div>
+        <div class="small mt-2 text-muted">Allotted</div>
+      </div>
+      <div class="step-line"></div>
+      <div class="text-center">
+        <div class="step-dot bg-secondary text-white">4</div>
+        <div class="small mt-2 text-muted">Completed</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- All Facility Allotments -->
+  <div class="text-center my-4">
+    <h2 class="fw-bold text-uppercase text-dark">All Facility Allotments</h2>
+    <p class="text-muted">View all your assigned facilities and their current status</p>
+    <hr class="w-25 mx-auto border-2 border-primary">
+  </div>
+
+  <% if (allotments && allotments.length > 0) { %>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover shadow-sm">
+        <thead class="table-light text-center">
+          <tr class="table-primary">
+            <th scope="col">Facility</th>
+            <th scope="col">Type</th>
+            <th scope="col">Location</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time Slot</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <% allotments.forEach(a => { %>
+            <tr>
+              <td><%= a.facility_id?.name %></td>
+              <td class="text-capitalize"><%= a.facility_id?.type %></td>
+              <td><%= a.facility_id?.location %></td>
+              <td><%= a.date %></td>
+              <td><%= a.time_slot %></td>
+              <td>
+                <span class="badge rounded-pill 
+                  <%= a.status === 'Approved' ? 'bg-success' : 
+                      a.status === 'Pending' ? 'bg-warning text-dark' : 
+                      'bg-danger' %>">
+                  <%= a.status %>
+                </span>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  <% } else { %>
+    <div class="alert alert-warning text-center mt-4">
+      <i class="bi bi-info-circle-fill me-2"></i> No facility allotments found.
+    </div>
+  <% } %>
+</section>
+
+<style>
+  .object-fit-cover {
+    height: 170px;
+    object-fit: cover;
+  }
+
+  .step-dot {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+
+  .step-line {
+    width: 70px;
+    height: 3px;
+    background: #e0e0e0;
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+  }
+
+  .badge {
+    font-size: 0.9rem;
+  }
+
+  .table th,
+  .table td {
+    vertical-align: middle;
+  }
+
+  .alert i {
+    font-size: 1.2rem;
+  }
+</style>

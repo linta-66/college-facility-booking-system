@@ -377,3 +377,76 @@ body {
         left: 0;
     }
 }
+/* Card container */
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+/* Titles */
+.card-title {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Styled table */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+.styled-table th, .styled-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+.styled-table thead {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+/* Empty text */
+.empty-text {
+  color: #666;
+  margin-top: 10px;
+}
+
+/* Status badges */
+.status {
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.status.approved { background: #d4edda; color: #155724; }
+.status.pending  { background: #fff3cd; color: #856404; }
+.status.rejected { background: #f8d7da; color: #721c24; }
+
+/* Styled form */
+.styled-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.styled-form select,
+.styled-form textarea {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+.styled-form .btn {
+  background: #007bff;
+  color: #fff;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.styled-form .btn:hover {
+  background: #0056b3;
+}

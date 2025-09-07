@@ -1,0 +1,104 @@
+<%- include("../partials/userHeader") %>
+
+<!-- College Banner -->
+<div class="college-banner text-center py-4 bg-light border-bottom">
+  <img src="/images/college-logo.jpg" alt="College Logo" class="mb-3" style="height: 120px;">
+  <h1 class="fw-bold text-uppercase text-dark mb-1">Saintgits College of Engineering</h1>
+  <p class="text-muted fst-italic small">Re-accredited by NAAC with 'A' Grade | ISO 9001:2008 Certified</p>
+</div>
+
+<div class="container-fluid mt-4">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-3 sidebar text-center">
+      <h5 class="mb-4">Navigation</h5>
+      <a href="/user/dashboard">Dashboard</a>
+      <a href="/user/viewAllotments">View Allotments</a>
+      <a href="/user/changeRequest">Change Request</a>
+      <a href="/user/help">Help & Support</a>
+      <hr>
+      <p class="text-white small mt-3">101 Women Empowering Excellence</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-md-9">
+      <!-- Campus Carousel -->
+      <div id="campusCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+        <div class="carousel-inner rounded shadow-sm">
+          <div class="carousel-item active">
+            <img src="/images/changerequest.jpg" class="d-block w-100" style="height: 300px; object-fit: cover;" alt="Campus View">
+          </div>
+          <div class="carousel-item">
+            <img src="/images/changerequest2.jpg" class="d-block w-100" style="height: 300px; object-fit: cover;" alt="Seminar Hall">
+          </div>
+        </div>
+      </div>
+
+      <!-- Request Form -->
+      <div class="card shadow-sm mb-4">
+        <div class="card-header text-center bg-primary text-white">
+          <i class="bi bi-pencil-square me-2"></i> Submit Facility Change Request
+        </div>
+        <div class="card-body">
+          <form action="/user/changeRequest" method="POST">
+            <div class="mb-3">
+              <label for="facility" class="form-label">Facility Name</label>
+              <input type="text" name="facility" id="facility" class="form-control" placeholder="e.g., Seminar Hall A" required>
+            </div>
+            <div class="mb-3">
+              <label for="reason" class="form-label">Reason for Change</label>
+              <textarea name="reason" id="reason" rows="4" class="form-control" placeholder="Explain your reason..." required></textarea>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-success px-4">
+                <i class="bi bi-send-fill me-1"></i> Submit Request
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Previous Requests -->
+      <div class="card shadow-sm">
+        <div class="card-header text-center bg-light">
+          <h5 class="mb-0">Your Previous Requests</h5>
+        </div>
+        <div class="card-body">
+          <% if (requests.length === 0) { %>
+            <div class="alert alert-warning text-center">
+              <i class="bi bi-info-circle-fill me-2"></i> No change requests found.
+            </div>
+          <% } else { %>
+            <table class="table table-bordered table-hover text-center">
+              <thead class="table-secondary">
+                <tr>
+                  <th>Facility</th>
+                  <th>Reason</th>
+                  <th>Status</th>
+                  <th>Requested On</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% requests.forEach(r => { %>
+                  <tr>
+                    <td><%= r.facility %></td>
+                    <td><%= r.reason %></td>
+                    <td>
+                      <span class="badge rounded-pill 
+                        <%= r.status === 'Approved' ? 'bg-success' : 
+                            r.status === 'Pending' ? 'bg-warning text-dark' : 
+                            'bg-danger' %>">
+                        <%= r.status %>
+                      </span>
+                    </td>
+                    <td><%= r.createdAt.toDateString() %></td>
+                  </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<%- include("../partials/userHeader") %>
+
+<section class="container mt-5">
+  <div class="text-center mb-4">
+    <h2 class="fw-bold text-uppercase text-dark">Available Conference Halls</h2>
+    <p class="text-muted">Browse all active conference halls with images and details</p>
+    <hr class="w-25 mx-auto border-2 border-primary">
+  </div>
+
+  <% if (conferenceHalls && conferenceHalls.length > 0) { %>
+    <div class="row g-4">
+      <% conferenceHalls.forEach((hall, index) => { %>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card shadow-sm h-100 border-0">
+            <img src="/images/conferenceHalls.jpg" class="card-img-top object-fit-cover" alt="Conference Hall <%= hall.name %>">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Hall <%= hall.name %></h5>
+              <p class="mb-1"><strong>Location:</strong> <%= hall.location %></p>
+              <p class="mb-1"><strong>Capacity:</strong> <%= hall.capacity || 'N/A' %></p>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } else { %>
+    <div class="alert alert-warning text-center mt-4">
+      <i class="bi bi-info-circle-fill me-2"></i> No conference halls available at the moment.
+    </div>
+  <% } %>
+</section>

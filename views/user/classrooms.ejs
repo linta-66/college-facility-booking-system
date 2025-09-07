@@ -1,0 +1,37 @@
+<%- include("../partials/userHeader") %>
+
+<section class="container mt-5">
+  <div class="text-center mb-4">
+    <h2 class="fw-bold text-uppercase text-dark">Available Classrooms</h2>
+    <p class="text-muted">Browse all active classrooms with images and room numbers</p>
+    <hr class="w-25 mx-auto border-2 border-primary">
+  </div>
+
+  <% if (classrooms && classrooms.length > 0) { %>
+    <div class="row g-4">
+      <% classrooms.forEach((room, index) => { %>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card shadow-sm h-100 border-0">
+            <img src="/images/classrooms.jpg" class="card-img-top object-fit-cover" alt="Classroom <%= room.name %>">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Room <%= room.name %></h5>
+              <p class="mb-1"><strong>Location:</strong> <%= room.location %></p>
+              <p class="mb-1"><strong>Capacity:</strong> <%= room.capacity || 'N/A' %></p>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } else { %>
+    <div class="alert alert-warning text-center mt-4">
+      <i class="bi bi-info-circle-fill me-2"></i> No classrooms available at the moment.
+    </div>
+  <% } %>
+</section>
+
+<style>
+  .object-fit-cover {
+    height: 170px;
+    object-fit: cover;
+  }
+</style>

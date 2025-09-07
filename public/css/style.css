@@ -581,3 +581,97 @@ footer {
   background-color: var(--secondary);
 }
 
+.badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.bg-success {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.bg-warning {
+  background-color: #f1c40f;
+  color: #2c3e50;
+}
+
+.bg-danger {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.alert {
+  padding: 15px;
+  background-color: #dfe6e9;
+  border-left: 5px solid #0984e3;
+  color: #2d3436;
+  text-align: center;
+  border-radius: 8px;
+}
+body {
+  background-color: #f8f9fa;
+  font-family: 'Georgia', serif;
+}
+
+.college-banner {
+  background: url('/images/college-banner.jpg') no-repeat center center/cover;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  border-bottom: 5px solid #800000;
+}
+
+.college-banner h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #333;
+}
+
+.sidebar {
+  background-color: #800000;
+  color: white;
+  padding: 20px;
+  height: 100%;
+  min-height: 100%;
+  border-radius: 8px;
+}
+
+.sidebar a {
+  color: white;
+  display: block;
+  margin-bottom: 10px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.sidebar a:hover {
+  text-decoration: underline;
+}
+
+.sidebar p {
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.card-header {
+  background-color: #800000;
+  color: white;
+  font-weight: bold;
+}
+.college-banner {
+  background-color: #f8f9fa;
+  border-bottom: 4px solid #800000;
+}
+
+.college-banner h1 {
+  font-size: 2.5rem;
+  font-family: 'Georgia', serif;
+}
+
+.college-banner p {
+  font-size: 1rem;
+  color: #555;
+}
